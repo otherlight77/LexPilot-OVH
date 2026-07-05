@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LexPilot.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ddca5117cc7c9164ad3b3606e09a038e5a3b7f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bddffec20ed942bc77afa15db79204eda81eee45")]
 [assembly: System.Reflection.AssemblyProductAttribute("LexPilot.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LexPilot.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
