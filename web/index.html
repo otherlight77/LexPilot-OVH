@@ -126,7 +126,43 @@ async function classifyMail(mailId, dossierId){
  document.getElementById("mailResult").innerHTML = `<b>${d.status}</b> : ${d.message}`;
 }
 
-function showOffice365(){app.innerHTML="<h1>Office 365</h1><div class='card'>Connexion Microsoft Graph prévue.</div>";}
+
+async function showOffice365(){
+  const cfg = await (await fetch("/api/office365-graph/config")).json();
+  app.innerHTML = `
+    <h1>📨 Office 365 / Microsoft Graph</h1>
+    <div class="cards">
+      <div class="card"><h2>${cfg.clientId}</h2><p>Client ID</p></div>
+      <div class="card"><h2>${cfg.clientSecret}</h2><p>Client Secret</p></div>
+      <div class="card"><h2>${cfg.redirectUri}</h2><p>Redirect URI</p></div>
+    </div>
+    <div class="card">
+      <button onclick="connectOffice365()">Connecter Office 365</button>
+      <button onclick="loadGraphMe()">Compte</button>
+      <button onclick="loadGraphMessages()">Mails</button>
+      <button onclick="loadGraphEvents()">Agenda</button>
+      <button onclick="loadGraphContacts()">Contacts</button>
+      <button onclick="loadGraphDrive()">OneDrive</button>
+      <button onclick="loadWordModule()">Word</button>
+    </div>
+    <div id="officeResult" class="card">Module prêt.</div>
+  `;
+}
+
+async function connectOffice365(){
+  const r = await fetch("/api/office365-graph/login-url");
+  const d = await r.json();
+  if(d.url) window.location.href = d.url;
+  else alert(JSON.stringify(d));
+}
+
+async function loadGraphMe(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/me")).json(), null, 2); }
+async function loadGraphMessages(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/messages")).json(), null, 2); }
+async function loadGraphEvents(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/events")).json(), null, 2); }
+async function loadGraphContacts(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/contacts")).json(), null, 2); }
+async function loadGraphDrive(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/drive")).json(), null, 2); }
+async function loadWordModule(){ officeResult.innerText = JSON.stringify(await (await fetch("/api/office365-graph/word")).json(), null, 2); }
+
 function showAgenda(){app.innerHTML="<h1>Agenda</h1><div class='card'>Audiences, RDV, rappels.</div>";}
 function showTasks(){app.innerHTML="<h1>Tâches</h1><div class='card'>Tâches cabinet et rappels.</div>";}
 function showLegifrance(){app.innerHTML="<h1>Légifrance</h1><div class='card'>API PISTE à connecter.</div>";}

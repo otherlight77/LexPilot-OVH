@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LexPilot.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95d66c26419e47548d8618733a8d6a452afc82bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aef7b75616555bc7692121dfaa8462f8ad5af733")]
 [assembly: System.Reflection.AssemblyProductAttribute("LexPilot.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LexPilot.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

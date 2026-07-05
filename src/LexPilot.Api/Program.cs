@@ -1,11 +1,14 @@
 using LexPilot.Infrastructure;
 using LexPilot.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using LexPilot.Api.Services.Office365;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<Office365TokenStore>();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
