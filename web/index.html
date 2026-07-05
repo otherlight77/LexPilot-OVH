@@ -29,6 +29,7 @@
     <div onclick="loadDossiers()">📁 Dossiers</div>
     <div onclick="loadDocuments()">📄 Documents</div>
     <div onclick="showMail()">📧 Mail</div>
+    <div onclick="showOffice365()">📨 Office 365 / Outlook</div>
     <div onclick="showAgenda()">📅 Agenda</div>
     <div onclick="showScanner()">📠 Scanner / OCR</div>
     <div onclick="showVoice()">🎙️ Dictée vocale</div>
@@ -114,6 +115,30 @@ async function loadDocuments() {
 
 
 function showMail(){ document.getElementById("app").innerHTML = "<h1>📧 Mail</h1><div class='card'>Module messagerie : réception, classement par dossier, pièces jointes, suivi des échanges.</div>"; }
+
+function showOffice365(){
+  document.getElementById("app").innerHTML = `
+    <h1>📨 Office 365 / Outlook</h1>
+    <div class="cards">
+      <div class="card"><h2>0</h2><p>Mails reçus</p></div>
+      <div class="card"><h2>0</h2><p>Mails à classer</p></div>
+      <div class="card"><h2>0</h2><p>Pièces jointes</p></div>
+    </div>
+    <div class="card">
+      <h3>Connexion Microsoft 365</h3>
+      <p>Prévu : connexion via Microsoft Graph avec OAuth sécurisé.</p>
+      <button>Connecter Office 365</button>
+    </div>
+    <div class="card">
+      <h3>Fonctions prévues</h3>
+      <p>Lecture des emails, envoi, pièces jointes, classement automatique dans les dossiers, résumé IA des échanges.</p>
+    </div>
+    <div class="card">
+      <h3>Classement intelligent</h3>
+      <p>LexPilot pourra associer un email à un client ou à un dossier selon l'expéditeur, le sujet, les pièces jointes et le contenu.</p>
+    </div>
+  `;
+}
 function showAgenda(){ document.getElementById("app").innerHTML = "<h1>📅 Agenda</h1><div class='card'>Module agenda : audiences, rendez-vous, échéances, rappels, synchronisation future Outlook/Google.</div>"; }
 function showScanner(){ document.getElementById("app").innerHTML = "<h1>📠 Scanner / OCR</h1><div class='card'>Module scanner : dépôt de PDF/scans, OCR, classement automatique dans les dossiers.</div>"; }
 function showVoice(){ document.getElementById("app").innerHTML = "<h1>🎙️ Dictée vocale</h1><div class='card'>Module dictée : notes vocales, transcription, génération de brouillons de courriers.</div>"; }
