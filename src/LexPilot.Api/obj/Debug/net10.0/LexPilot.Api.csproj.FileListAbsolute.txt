@@ -37,3 +37,4 @@
 /opt/lexpilot-ovh/src/LexPilot.Api/obj/Debug/net10.0/LexPilot.Api.pdb
 /opt/lexpilot-ovh/src/LexPilot.Api/obj/Debug/net10.0/LexPilot.Api.genruntimeconfig.cache
 /opt/lexpilot-ovh/src/LexPilot.Api/obj/Debug/net10.0/ref/LexPilot.Api.dll
+/opt/lexpilot-ovh/src/LexPilot.Api/obj/Debug/net10.0/LexPilot.Api.sourcelink.json

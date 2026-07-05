@@ -13,3 +13,4 @@
 /opt/lexpilot-ovh/src/LexPilot.Application/obj/Debug/net10.0/refint/LexPilot.Application.dll
 /opt/lexpilot-ovh/src/LexPilot.Application/obj/Debug/net10.0/LexPilot.Application.pdb
 /opt/lexpilot-ovh/src/LexPilot.Application/obj/Debug/net10.0/ref/LexPilot.Application.dll
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Debug/net10.0/LexPilot.Application.sourcelink.json
