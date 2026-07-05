@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LexPilot.Api/LexPilot.Api.csproj" />
+    <Project Path="src/LexPilot.Application/LexPilot.Application.csproj" />
+    <Project Path="src/LexPilot.Domain/LexPilot.Domain.csproj" />
+    <Project Path="src/LexPilot.Infrastructure/LexPilot.Infrastructure.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: lexpilot_ovh_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lexpilot
+      POSTGRES_PASSWORD: lexpilot_password
+      POSTGRES_DB: lexpilot_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - lexpilot_ovh_pgdata:/var/lib/postgresql/data
+
+volumes:
+  lexpilot_ovh_pgdata:
