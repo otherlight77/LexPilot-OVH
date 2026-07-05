@@ -1,17 +1,17 @@
 using LexPilot.Domain.Clients;
 using LexPilot.Domain.Dossiers;
+using LexPilot.Domain.Documents;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexPilot.Infrastructure.Data;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    {
-    }
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Dossier> Dossiers => Set<Dossier>();
+    public DbSet<Document> Documents => Set<Document>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,6 +40,21 @@ public class AppDbContext : DbContext
             entity.HasOne(x => x.Client)
                 .WithMany()
                 .HasForeignKey(x => x.ClientId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        modelBuilder.Entity<Document>(entity =>
+        {
+            entity.ToTable("documents");
+            entity.HasKey(x => x.Id);
+            entity.Property(x => x.FileName).HasMaxLength(260).IsRequired();
+            entity.Property(x => x.OriginalFileName).HasMaxLength(260).IsRequired();
+            entity.Property(x => x.ContentType).HasMaxLength(120);
+            entity.Property(x => x.StoragePath).HasMaxLength(500).IsRequired();
+            entity.Property(x => x.Category).HasMaxLength(120);
+            entity.HasOne(x => x.Dossier)
+                .WithMany()
+                .HasForeignKey(x => x.DossierId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
     }
