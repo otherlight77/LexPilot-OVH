@@ -34,6 +34,7 @@
     <div onclick="showVoice()">🎙️ Dictée vocale</div>
     <div onclick="showRpva()">⚖️ RPVA / e-Barreau</div>
     <div onclick="showVeille()">📚 Dernières lois</div>
+    <div onclick="showStats()">📊 Statistiques Web / SEO</div>
     <div>🤖 IA</div>
     <div>⚙️ Paramètres</div>
   </nav>
@@ -118,6 +119,29 @@ function showScanner(){ document.getElementById("app").innerHTML = "<h1>📠 Sca
 function showVoice(){ document.getElementById("app").innerHTML = "<h1>🎙️ Dictée vocale</h1><div class='card'>Module dictée : notes vocales, transcription, génération de brouillons de courriers.</div>"; }
 function showRpva(){ document.getElementById("app").innerHTML = "<h1>⚖️ RPVA / e-Barreau</h1><div class='card'>Module RPVA : passerelle prévue avec e-Barreau/CNB après autorisation éditeur.</div>"; }
 function showVeille(){ document.getElementById("app").innerHTML = "<h1>📚 Dernières lois</h1><div class='card'>Module veille juridique : connexion future à Légifrance/PISTE pour lois, décrets et jurisprudence.</div>"; }
+
+function showStats(){
+  document.getElementById("app").innerHTML = `
+    <h1>📊 Statistiques Web / Référencement</h1>
+    <div class="cards">
+      <div class="card"><h2>0</h2><p>Visiteurs aujourd'hui</p></div>
+      <div class="card"><h2>0</h2><p>Prospects entrants</p></div>
+      <div class="card"><h2>0</h2><p>Conversions</p></div>
+    </div>
+    <div class="card">
+      <h3>Sources de trafic</h3>
+      <p>Google, réseaux sociaux, accès direct, campagnes publicitaires.</p>
+    </div>
+    <div class="card">
+      <h3>SEO / Référencement</h3>
+      <p>Suivi futur : Google Search Console, mots-clés, pages les plus visitées, positionnement.</p>
+    </div>
+    <div class="card">
+      <h3>Objectif</h3>
+      <p>Identifier les visiteurs, mesurer les demandes clients, suivre les prospects et améliorer le référencement du cabinet.</p>
+    </div>
+  `;
+}
 
 showDashboard();
 </script>
