@@ -74,7 +74,58 @@ async function loadDocuments(){
  app.innerHTML=`<h1>Documents</h1><table><tr><th>Nom</th><th>Catégorie</th><th>Taille</th></tr>${rows}</table>`;
 }
 
-function showMail(){app.innerHTML="<h1>Mail</h1><div class='card'>Messagerie, classement automatique, pièces jointes.</div>";}
+
+async function showMail(){
+ const r = await fetch("/api/mail-ai/inbox");
+ const mails = await r.json();
+ let rows = "";
+ for (const m of mails) {
+   rows += `<tr>
+     <td>${m.from}</td>
+     <td>${m.subject}</td>
+     <td><button onclick="suggestMail('${m.id}', '${(m.subject + " " + m.body).replaceAll("'"," ")}')">IA dossier</button></td>
+   </tr>`;
+ }
+ app.innerHTML = `<h1>📧 Mail intelligent</h1>
+ <div class="card">
+   <input id="mailSearch" placeholder="Rechercher mail, expéditeur, sujet...">
+   <button onclick="searchMail()">Rechercher</button>
+ </div>
+ <table><tr><th>Expéditeur</th><th>Sujet</th><th>Action</th></tr>${rows}</table>
+ <div id="mailResult" class="card"></div>`;
+}
+
+async function searchMail(){
+ const q = document.getElementById("mailSearch").value;
+ const r = await fetch("/api/mail-ai/inbox?search=" + encodeURIComponent(q));
+ const mails = await r.json();
+ let rows = mails.map(m => `<tr><td>${m.from}</td><td>${m.subject}</td><td><button onclick="suggestMail('${m.id}', '${(m.subject + " " + m.body).replaceAll("'"," ")}')">IA dossier</button></td></tr>`).join("");
+ app.innerHTML = `<h1>📧 Résultat recherche mail</h1><button onclick="showMail()">Retour</button><table><tr><th>Expéditeur</th><th>Sujet</th><th>Action</th></tr>${rows}</table><div id="mailResult" class="card"></div>`;
+}
+
+async function suggestMail(mailId, text){
+ const r = await fetch("/api/mail-ai/suggest-dossier?text=" + encodeURIComponent(text));
+ const d = await r.json();
+ if (!d.suggestion || d.suggestion.score === 0) {
+   document.getElementById("mailResult").innerHTML = `<b>IA :</b> ${d.message}`;
+   return;
+ }
+ document.getElementById("mailResult").innerHTML =
+   `<h3>Suggestion IA</h3>
+    <p>${d.message}</p>
+    <button onclick="classifyMail('${mailId}', '${d.suggestion.id}')">Classer dans ce dossier</button>`;
+}
+
+async function classifyMail(mailId, dossierId){
+ const r = await fetch("/api/mail-ai/classify", {
+   method:"POST",
+   headers:{ "Content-Type":"application/json" },
+   body: JSON.stringify({ mailId, dossierId })
+ });
+ const d = await r.json();
+ document.getElementById("mailResult").innerHTML = `<b>${d.status}</b> : ${d.message}`;
+}
+
 function showOffice365(){app.innerHTML="<h1>Office 365</h1><div class='card'>Connexion Microsoft Graph prévue.</div>";}
 function showAgenda(){app.innerHTML="<h1>Agenda</h1><div class='card'>Audiences, RDV, rappels.</div>";}
 function showTasks(){app.innerHTML="<h1>Tâches</h1><div class='card'>Tâches cabinet et rappels.</div>";}
