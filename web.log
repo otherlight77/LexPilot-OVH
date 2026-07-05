@@ -26,3 +26,16 @@
 167.172.42.156 - - [05/Jul/2026 08:59:37] "GET / HTTP/1.1" 200 -
 167.172.42.156 - - [05/Jul/2026 08:59:37] code 404, message File not found
 167.172.42.156 - - [05/Jul/2026 08:59:37] "GET /favicon.ico HTTP/1.1" 404 -
+45.198.224.244 - - [05/Jul/2026 09:28:20] "GET / HTTP/1.1" 200 -
+45.198.224.244 - - [05/Jul/2026 09:28:21] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:21] "POST / HTTP/1.1" 501 -
+45.198.224.244 - - [05/Jul/2026 09:28:21] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:21] "POST /_next HTTP/1.1" 501 -
+45.198.224.244 - - [05/Jul/2026 09:28:22] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:22] "POST /api HTTP/1.1" 501 -
+45.198.224.244 - - [05/Jul/2026 09:28:22] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:22] "POST /_next/server HTTP/1.1" 501 -
+45.198.224.244 - - [05/Jul/2026 09:28:23] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:23] "POST /app HTTP/1.1" 501 -
+45.198.224.244 - - [05/Jul/2026 09:28:23] code 501, message Unsupported method ('POST')
+45.198.224.244 - - [05/Jul/2026 09:28:23] "POST /api/route HTTP/1.1" 501 -

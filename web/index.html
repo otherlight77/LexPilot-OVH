@@ -28,7 +28,7 @@
     <div onclick="loadClients()">👥 Clients</div>
     <div onclick="loadDossiers()">📁 Dossiers</div>
     <div onclick="loadDocuments()">📄 Documents</div>
-    <div onclick="showMail()">📧 Mail</div>
+    <div onclick="showMail()">📧 Mail</div>\n    <div onclick="showMailDemo()">📥 Mails à classer</div>
     <div onclick="showOffice365()">📨 Office 365 / Outlook</div>
     <div onclick="showAgenda()">📅 Agenda</div>
     <div onclick="showTaches()">✅ Tâches</div>
@@ -273,7 +273,22 @@ function showOffice365(){
   `;
 }
 
-showDashboard();
+
+function showMailDemo(){
+  document.getElementById("app").innerHTML = `
+    <h1>📧 Mails à classer</h1>
+    <div class="card">
+      <h3>Boîte Office 365 - exemples</h3>
+      <table>
+        <tr><th>Expéditeur</th><th>Sujet</th><th>Suggestion dossier</th><th>Action</th></tr>
+        <tr><td>jean.dupont@test.fr</td><td>Documents divorce</td><td>D-2026-0001</td><td><button>Classer</button></td></tr>
+        <tr><td>sophie.martin@test.fr</td><td>Contrat de travail</td><td>D-2026-0002</td><td><button>Classer</button></td></tr>
+        <tr><td>greffe@justice.fr</td><td>Convocation audience</td><td>D-2026-0003</td><td><button>Classer</button></td></tr>
+      </table>
+    </div>
+  `;
+}
+\nshowDashboard();
 </script>
 </body>
 </html>
