@@ -1,0 +1,12 @@
+/opt/lexpilot-ovh/src/LexPilot.Domain/bin/Release/net10.0/LexPilot.Domain.deps.json
+/opt/lexpilot-ovh/src/LexPilot.Domain/bin/Release/net10.0/LexPilot.Domain.dll
+/opt/lexpilot-ovh/src/LexPilot.Domain/bin/Release/net10.0/LexPilot.Domain.pdb
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.AssemblyInfoInputs.cache
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.AssemblyInfo.cs
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.csproj.CoreCompileInputs.cache
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.sourcelink.json
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.dll
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/refint/LexPilot.Domain.dll
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/LexPilot.Domain.pdb
+/opt/lexpilot-ovh/src/LexPilot.Domain/obj/Release/net10.0/ref/LexPilot.Domain.dll

@@ -152,3 +152,20 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       WHERE NOT (d."IsArchived")
       ORDER BY d."CreatedAtUtc" DESC
       LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM clients AS c
+      WHERE NOT (c."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM dossiers AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM documents AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

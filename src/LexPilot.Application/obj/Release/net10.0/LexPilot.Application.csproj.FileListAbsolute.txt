@@ -1,0 +1,16 @@
+/opt/lexpilot-ovh/src/LexPilot.Application/bin/Release/net10.0/LexPilot.Application.deps.json
+/opt/lexpilot-ovh/src/LexPilot.Application/bin/Release/net10.0/LexPilot.Application.dll
+/opt/lexpilot-ovh/src/LexPilot.Application/bin/Release/net10.0/LexPilot.Application.pdb
+/opt/lexpilot-ovh/src/LexPilot.Application/bin/Release/net10.0/LexPilot.Domain.dll
+/opt/lexpilot-ovh/src/LexPilot.Application/bin/Release/net10.0/LexPilot.Domain.pdb
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.csproj.AssemblyReference.cache
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.GeneratedMSBuildEditorConfig.editorconfig
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.AssemblyInfoInputs.cache
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.AssemblyInfo.cs
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.csproj.CoreCompileInputs.cache
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.sourcelink.json
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.1936A222.Up2Date
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.dll
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/refint/LexPilot.Application.dll
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/LexPilot.Application.pdb
+/opt/lexpilot-ovh/src/LexPilot.Application/obj/Release/net10.0/ref/LexPilot.Application.dll
