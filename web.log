@@ -18,3 +18,11 @@
 92.140.63.215 - - [05/Jul/2026 08:37:19] "GET /api/dossiers HTTP/1.1" 404 -
 92.140.63.215 - - [05/Jul/2026 08:37:19] code 404, message File not found
 92.140.63.215 - - [05/Jul/2026 08:37:19] "GET /api/clients HTTP/1.1" 404 -
+52.167.144.59 - - [05/Jul/2026 08:57:12] code 404, message File not found
+52.167.144.59 - - [05/Jul/2026 08:57:12] "GET /robots.txt HTTP/1.1" 404 -
+40.77.167.144 - - [05/Jul/2026 08:57:15] "GET / HTTP/1.1" 200 -
+65.55.210.100 - - [05/Jul/2026 08:57:19] code 404, message File not found
+65.55.210.100 - - [05/Jul/2026 08:57:19] "GET /api/dashboard HTTP/1.1" 404 -
+167.172.42.156 - - [05/Jul/2026 08:59:37] "GET / HTTP/1.1" 200 -
+167.172.42.156 - - [05/Jul/2026 08:59:37] code 404, message File not found
+167.172.42.156 - - [05/Jul/2026 08:59:37] "GET /favicon.ico HTTP/1.1" 404 -

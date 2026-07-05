@@ -31,6 +31,7 @@
     <div onclick="showMail()">📧 Mail</div>
     <div onclick="showOffice365()">📨 Office 365 / Outlook</div>
     <div onclick="showAgenda()">📅 Agenda</div>
+    <div onclick="showTaches()">✅ Tâches</div>
     <div onclick="showScanner()">📠 Scanner / OCR</div>
     <div onclick="showVoice()">🎙️ Dictée vocale</div>
     <div onclick="showRpva()">⚖️ RPVA / e-Barreau</div>
@@ -166,6 +167,35 @@ function showStats(){
       <p>Identifier les visiteurs, mesurer les demandes clients, suivre les prospects et améliorer le référencement du cabinet.</p>
     </div>
   `;
+}
+
+
+async function showTaches(){
+  const r = await fetch("/api/taches");
+  const data = await r.json();
+  let rows = data.map(x => `<tr><td>${x.titre}</td><td>${x.priorite}</td><td>${x.statut}</td></tr>`).join("");
+  document.getElementById("app").innerHTML = `
+    <h1>✅ Tâches</h1>
+    <div class="card">
+      <input id="taskTitle" placeholder="Nouvelle tâche">
+      <button onclick="createTache()">Ajouter</button>
+    </div>
+    <br>
+    <table><tr><th>Titre</th><th>Priorité</th><th>Statut</th></tr>${rows}</table>
+  `;
+}
+
+async function createTache(){
+  await fetch("/api/taches", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({
+      titre: document.getElementById("taskTitle").value,
+      priorite: "Normale",
+      statut: "A faire"
+    })
+  });
+  showTaches();
 }
 
 showDashboard();

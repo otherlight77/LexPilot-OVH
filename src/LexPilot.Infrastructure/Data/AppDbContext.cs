@@ -1,6 +1,7 @@
 using LexPilot.Domain.Clients;
 using LexPilot.Domain.Dossiers;
 using LexPilot.Domain.Documents;
+using LexPilot.Domain.Taches;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexPilot.Infrastructure.Data;
@@ -12,6 +13,7 @@ public class AppDbContext : DbContext
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Dossier> Dossiers => Set<Dossier>();
     public DbSet<Document> Documents => Set<Document>();
+    public DbSet<Tache> Taches => Set<Tache>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,5 +59,15 @@ public class AppDbContext : DbContext
                 .HasForeignKey(x => x.DossierId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
+
+        modelBuilder.Entity<Tache>(entity =>
+        {
+            entity.ToTable("taches");
+            entity.HasKey(x => x.Id);
+            entity.Property(x => x.Titre).HasMaxLength(250).IsRequired();
+            entity.Property(x => x.Statut).HasMaxLength(80);
+            entity.Property(x => x.Priorite).HasMaxLength(80);
+        });
     }
 }
+
