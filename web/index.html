@@ -118,29 +118,45 @@ async function loadDocuments() {
 
 function showMail(){ document.getElementById("app").innerHTML = "<h1>📧 Mail</h1><div class='card'>Module messagerie : réception, classement par dossier, pièces jointes, suivi des échanges.</div>"; }
 
-function showOffice365(){
+
+async function showOffice365(){
+  const r = await fetch("/api/office365/status");
+  const status = await r.json();
+
+  const inboxR = await fetch("/api/office365/inbox-preview");
+  const mails = await inboxR.json();
+
+  let mailRows = mails.map(x => `<tr><td>${x.from}</td><td>${x.subject}</td><td>${x.dossier}</td></tr>`).join("");
+
   document.getElementById("app").innerHTML = `
     <h1>📨 Office 365 / Outlook</h1>
+
     <div class="cards">
-      <div class="card"><h2>0</h2><p>Mails reçus</p></div>
-      <div class="card"><h2>0</h2><p>Mails à classer</p></div>
-      <div class="card"><h2>0</h2><p>Pièces jointes</p></div>
+      <div class="card"><h2>${status.configured ? "OK" : "À configurer"}</h2><p>Connexion Microsoft Graph</p></div>
+      <div class="card"><h2>3</h2><p>Mails exemple</p></div>
+      <div class="card"><h2>0</h2><p>Mails classés</p></div>
     </div>
-    <div class="card">
-      <h3>Connexion Microsoft 365</h3>
-      <p>Prévu : connexion via Microsoft Graph avec OAuth sécurisé.</p>
-      <button>Connecter Office 365</button>
-    </div>
+
     <div class="card">
       <h3>Fonctions prévues</h3>
-      <p>Lecture des emails, envoi, pièces jointes, classement automatique dans les dossiers, résumé IA des échanges.</p>
+      <p>${status.features.join(" • ")}</p>
     </div>
+
     <div class="card">
-      <h3>Classement intelligent</h3>
-      <p>LexPilot pourra associer un email à un client ou à un dossier selon l'expéditeur, le sujet, les pièces jointes et le contenu.</p>
+      <h3>Boîte de réception - aperçu</h3>
+      <table>
+        <tr><th>Expéditeur</th><th>Sujet</th><th>Dossier</th></tr>
+        ${mailRows}
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Configuration requise</h3>
+      <p>Créer une application dans Microsoft Entra ID, puis renseigner Tenant ID, Client ID et Client Secret sur le serveur.</p>
     </div>
   `;
 }
+
 function showAgenda(){ document.getElementById("app").innerHTML = "<h1>📅 Agenda</h1><div class='card'>Module agenda : audiences, rendez-vous, échéances, rappels, synchronisation future Outlook/Google.</div>"; }
 function showScanner(){ document.getElementById("app").innerHTML = "<h1>📠 Scanner / OCR</h1><div class='card'>Module scanner : dépôt de PDF/scans, OCR, classement automatique dans les dossiers.</div>"; }
 function showVoice(){ document.getElementById("app").innerHTML = "<h1>🎙️ Dictée vocale</h1><div class='card'>Module dictée : notes vocales, transcription, génération de brouillons de courriers.</div>"; }
