@@ -108,3 +108,47 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       SELECT count(*)::int
       FROM documents AS d
       WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM clients AS c
+      WHERE NOT (c."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM dossiers AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM documents AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT c."Id", c."Address", c."City", c."CompanyName", c."CreatedAtUtc", c."Email", c."FirstName", c."IsArchived", c."LastName", c."Notes", c."Phone", c."PostalCode", c."UpdatedAtUtc"
+      FROM clients AS c
+      WHERE NOT (c."IsArchived")
+      ORDER BY c."CreatedAtUtc" DESC
+      LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM clients AS c
+      WHERE NOT (c."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM dossiers AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT count(*)::int
+      FROM documents AS d
+      WHERE NOT (d."IsArchived")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT d."Id", d."DossierId", d."FileName", d."OriginalFileName", d."ContentType", d."SizeBytes", d."Category", d."Notes", d."CreatedAtUtc"
+      FROM documents AS d
+      WHERE NOT (d."IsArchived")
+      ORDER BY d."CreatedAtUtc" DESC
+      LIMIT @p

@@ -28,6 +28,12 @@
     <div onclick="loadClients()">👥 Clients</div>
     <div onclick="loadDossiers()">📁 Dossiers</div>
     <div onclick="loadDocuments()">📄 Documents</div>
+    <div onclick="showMail()">📧 Mail</div>
+    <div onclick="showAgenda()">📅 Agenda</div>
+    <div onclick="showScanner()">📠 Scanner / OCR</div>
+    <div onclick="showVoice()">🎙️ Dictée vocale</div>
+    <div onclick="showRpva()">⚖️ RPVA / e-Barreau</div>
+    <div onclick="showVeille()">📚 Dernières lois</div>
     <div>🤖 IA</div>
     <div>⚙️ Paramètres</div>
   </nav>
@@ -104,6 +110,14 @@ async function loadDocuments() {
     <table><tr><th>Nom</th><th>Catégorie</th><th>Taille</th></tr>${rows}</table>
   `;
 }
+
+
+function showMail(){ document.getElementById("app").innerHTML = "<h1>📧 Mail</h1><div class='card'>Module messagerie : réception, classement par dossier, pièces jointes, suivi des échanges.</div>"; }
+function showAgenda(){ document.getElementById("app").innerHTML = "<h1>📅 Agenda</h1><div class='card'>Module agenda : audiences, rendez-vous, échéances, rappels, synchronisation future Outlook/Google.</div>"; }
+function showScanner(){ document.getElementById("app").innerHTML = "<h1>📠 Scanner / OCR</h1><div class='card'>Module scanner : dépôt de PDF/scans, OCR, classement automatique dans les dossiers.</div>"; }
+function showVoice(){ document.getElementById("app").innerHTML = "<h1>🎙️ Dictée vocale</h1><div class='card'>Module dictée : notes vocales, transcription, génération de brouillons de courriers.</div>"; }
+function showRpva(){ document.getElementById("app").innerHTML = "<h1>⚖️ RPVA / e-Barreau</h1><div class='card'>Module RPVA : passerelle prévue avec e-Barreau/CNB après autorisation éditeur.</div>"; }
+function showVeille(){ document.getElementById("app").innerHTML = "<h1>📚 Dernières lois</h1><div class='card'>Module veille juridique : connexion future à Légifrance/PISTE pour lois, décrets et jurisprudence.</div>"; }
 
 showDashboard();
 </script>
