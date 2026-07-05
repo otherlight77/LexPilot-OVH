@@ -2,6 +2,7 @@ using LexPilot.Domain.Clients;
 using LexPilot.Domain.Dossiers;
 using LexPilot.Domain.Documents;
 using LexPilot.Domain.Taches;
+using LexPilot.Domain.Utilisateurs;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexPilot.Infrastructure.Data;
@@ -14,6 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Dossier> Dossiers => Set<Dossier>();
     public DbSet<Document> Documents => Set<Document>();
     public DbSet<Tache> Taches => Set<Tache>();
+    public DbSet<Utilisateur> Utilisateurs => Set<Utilisateur>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -68,6 +70,16 @@ public class AppDbContext : DbContext
             entity.Property(x => x.Statut).HasMaxLength(80);
             entity.Property(x => x.Priorite).HasMaxLength(80);
         });
+
+        modelBuilder.Entity<Utilisateur>(entity =>
+        {
+            entity.ToTable("utilisateurs");
+            entity.HasKey(x => x.Id);
+            entity.Property(x => x.Nom).HasMaxLength(150).IsRequired();
+            entity.Property(x => x.Email).HasMaxLength(250).IsRequired();
+            entity.Property(x => x.Role).HasMaxLength(80);
+        });
     }
 }
+
 

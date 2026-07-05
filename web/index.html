@@ -38,6 +38,7 @@
     <div onclick="showVeille()">📚 Dernières lois</div>
     <div onclick="showStats()">📊 Statistiques Web / SEO</div>
     <div>🤖 IA</div>
+    <div onclick="showUsers()">👤 Utilisateurs</div>
     <div>⚙️ Paramètres</div>
   </nav>
 
@@ -196,6 +197,64 @@ async function createTache(){
     })
   });
   showTaches();
+}
+
+
+async function showUsers(){
+  const r = await fetch("/api/utilisateurs");
+  const data = await r.json();
+  let rows = data.map(x => `<tr><td>${x.nom}</td><td>${x.email}</td><td>${x.role}</td><td>${x.actif}</td></tr>`).join("");
+  document.getElementById("app").innerHTML = `
+    <h1>👤 Utilisateurs</h1>
+    <div class="card">
+      <input id="userNom" placeholder="Nom">
+      <input id="userEmail" placeholder="Email">
+      <input id="userRole" placeholder="Rôle" value="Avocat">
+      <button onclick="createUser()">Ajouter</button>
+    </div>
+    <br>
+    <table><tr><th>Nom</th><th>Email</th><th>Rôle</th><th>Actif</th></tr>${rows}</table>
+  `;
+}
+
+async function createUser(){
+  await fetch("/api/utilisateurs", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({
+      nom: document.getElementById("userNom").value,
+      email: document.getElementById("userEmail").value,
+      role: document.getElementById("userRole").value,
+      actif: true
+    })
+  });
+  showUsers();
+}
+
+async function testLegifranceLive(){
+  const r = await fetch("/api/legifrance/test");
+  const d = await r.json();
+  alert(d.service + "\n" + d.status + "\n" + d.message);
+}
+
+async function testOutlookLive(){
+  const r = await fetch("/api/outlook/test");
+  const d = await r.json();
+  alert(d.service + "\n" + d.status + "\n" + d.message);
+}
+
+function showLegifrance(){
+  document.getElementById("app").innerHTML = `
+    <h1>📚 Légifrance</h1>
+    <div class="card"><p>Recherche juridique via API officielle Légifrance / PISTE.</p><button onclick="testLegifranceLive()">Tester connexion Légifrance</button></div>
+  `;
+}
+
+function showOffice365(){
+  document.getElementById("app").innerHTML = `
+    <h1>📨 Office 365 / Outlook</h1>
+    <div class="card"><p>Connexion future Microsoft Graph pour lire et classer les emails.</p><button onclick="testOutlookLive()">Tester connexion Outlook</button></div>
+  `;
 }
 
 showDashboard();
