@@ -3,10 +3,10 @@ Building...
 /opt/lexpilot-ovh/src/LexPilot.Api/LexPilot.Api.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
 /opt/lexpilot-ovh/src/LexPilot.Api/LexPilot.Api.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (48ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (49ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT 1
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (67ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (66ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
       FROM pg_class AS cls
       JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
@@ -41,13 +41,13 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       ORDER BY c."CreatedAtUtc" DESC
       LIMIT @p
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[@dossier_ClientId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (4ms) [Parameters=[@dossier_ClientId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
       SELECT EXISTS (
           SELECT 1
           FROM clients AS c
           WHERE c."Id" = @dossier_ClientId AND NOT (c."IsArchived"))
 fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
-      Failed executing DbCommand (24ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = DateTime), @p3='?' (DbType = Boolean), @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
       INSERT INTO dossiers ("Id", "ClientId", "CreatedAtUtc", "IsArchived", "Juridiction", "Notes", "Numero", "Statut", "Titre", "TypeAffaire", "UpdatedAtUtc")
       VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
 fail: Microsoft.EntityFrameworkCore.Update[10000]
@@ -265,12 +265,12 @@ fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
           Line: 1449
           Routine: parserOpenTable
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT count(*)::int
       FROM clients AS c
       WHERE NOT (c."IsArchived")
 fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
-      Failed executing DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT count(*)::int
       FROM dossiers AS d
       WHERE NOT (d."IsArchived")
@@ -355,3 +355,5 @@ fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
           File: parse_relation.c
           Line: 1449
           Routine: parserOpenTable
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
